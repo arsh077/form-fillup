@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { initialFormData, FormData } from './types';
+<<<<<<< HEAD
 import { FormRow, FormCell, CheckboxGroup, SectionHeader, BooleanCheckbox, BoxInput, TableRow, TableLabel, TableInput } from './components/FormComponents';
 import { Printer, Upload } from 'lucide-react';
+=======
+import { FormRow, FormCell, CheckboxGroup, SectionHeader, BooleanCheckbox } from './components/FormComponents';
+import { Printer, Upload, Download } from 'lucide-react';
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
 
 function App() {
   const [data, setData] = useState<FormData>(initialFormData);
@@ -66,6 +71,7 @@ function App() {
             APPLICATION FORM for BANGLAR YUBA SATHI SCHEME <span className="font-bengali font-normal">(বাংলার যুবসাথী প্রকল্পের আবেদন পত্র)</span>
           </div>
 
+<<<<<<< HEAD
           {/* Top Section: ID & Photo */}
           <div className="border-2 border-black border-b-0 flex">
             {/* Left Column (Fields) */}
@@ -82,11 +88,37 @@ function App() {
                     <BoxInput length={12} value={data.aadhaarNo} onChange={(v) => update('aadhaarNo', v)} />
                  </TableInput>
                </TableRow>
+=======
+          {/* Main Form Body */}
+          <div className="border-2 border-black flex">
+            {/* Left Column (Fields) */}
+            <div className="flex-grow">
+               <FormRow>
+                 <FormCell 
+                   label="Duare Sarkar Registration no." 
+                   subLabel="দুয়ারে সরকার রেজিস্ট্রেশন নম্বর"
+                   value={data.duareSarkarRegNo} 
+                   onChange={(v) => update('duareSarkarRegNo', v)} 
+                 />
+               </FormRow>
+               <FormRow>
+                 <FormCell 
+                   label="Aadhaar No." 
+                   subLabel="আধার নং"
+                   value={data.aadhaarNo} 
+                   onChange={(v) => update('aadhaarNo', v)} 
+                 />
+               </FormRow>
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
             </div>
             
             {/* Right Column (Photo) */}
             <div 
+<<<<<<< HEAD
               className="w-32 md:w-40 border-l border-black flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-gray-50 relative group bg-white"
+=======
+              className="w-32 md:w-40 border-l-2 border-black flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-gray-50 relative group"
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
               onClick={() => fileInputRef.current?.click()}
             >
               <input 
@@ -110,6 +142,7 @@ function App() {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* Main Table Structure */}
           <div className="border-2 border-black">
             
@@ -290,6 +323,231 @@ function App() {
                 <TableLabel label="State" subLabel="রাজ্য" />
                 <TableInput><BoxInput length={24} value={data.state} onChange={v => update('state', v)} /></TableInput>
              </TableRow>
+=======
+          {/* Continuing the table structure */}
+          <div className="border-x-2 border-b-2 border-black">
+            <FormRow>
+              <FormCell 
+                label="Beneficiary Name" 
+                subLabel="উপভোক্তার নাম (মাধ্যমিক বা সমমানের পরীক্ষা অনুযায়ী)"
+                value={data.beneficiaryName}
+                onChange={(v) => update('beneficiaryName', v)}
+              />
+            </FormRow>
+            
+            <FormRow>
+               <FormCell 
+                 label="Mobile Number (Linked with Bank Account)" 
+                 subLabel="মোবাইল নম্বর (ব্যাঙ্ক অ্যাকাউন্ট লিঙ্কযুক্ত)"
+                 value={data.mobileNo}
+                 onChange={(v) => update('mobileNo', v)}
+               />
+               <FormCell 
+                 label="Email Id. (If any)" 
+                 subLabel="ইমেল আইডি (যদি থাকে)"
+                 value={data.email}
+                 onChange={(v) => update('email', v)}
+               />
+            </FormRow>
+
+            <FormRow>
+              <CheckboxGroup
+                label="Gender"
+                bengaliLabel="লিঙ্গ"
+                options={[
+                  { label: 'Male', bengaliLabel: 'পুরুষ', value: 'Male' },
+                  { label: 'Female', bengaliLabel: 'মহিলা', value: 'Female' },
+                  { label: 'Others', bengaliLabel: 'অন্যান্য', value: 'Others' },
+                ]}
+                selectedValue={data.gender}
+                onChange={(v) => update('gender', v)}
+                className="flex-grow"
+              />
+            </FormRow>
+
+            <FormRow>
+              <div className="flex-1 border-r border-black p-1 flex items-end gap-2">
+                 <div className="text-xs font-bold w-1/2">
+                   Date of Birth: (DD/MM/YYYY) <br/>
+                   <span className="font-bengali font-normal">জন্ম তারিখ: (তারিখ/মাস/বছর)</span>
+                 </div>
+                 <div className="flex gap-1 items-center">
+                   <input 
+                      className="w-8 border-b border-black text-center font-handwriting text-blue-700" 
+                      placeholder="DD" 
+                      value={data.dobDay} 
+                      onChange={e => update('dobDay', e.target.value)} 
+                    />
+                    <span>/</span>
+                    <input 
+                      className="w-8 border-b border-black text-center font-handwriting text-blue-700" 
+                      placeholder="MM" 
+                      value={data.dobMonth} 
+                      onChange={e => update('dobMonth', e.target.value)} 
+                    />
+                    <span>/</span>
+                    <input 
+                      className="w-12 border-b border-black text-center font-handwriting text-blue-700" 
+                      placeholder="YYYY" 
+                      value={data.dobYear} 
+                      onChange={e => update('dobYear', e.target.value)} 
+                    />
+                 </div>
+              </div>
+              <div className="flex-1 p-1 flex items-end gap-2">
+                 <div className="text-xs font-bold w-1/2">
+                    Age as on 01/04/2026: in Year <br/>
+                    <span className="font-bengali font-normal">০১/০৪/২০২৬ তারিখে বয়স: বছরে</span>
+                 </div>
+                 <input 
+                    className="w-16 border-b border-black text-center font-handwriting text-blue-700" 
+                    value={data.ageYears} 
+                    onChange={e => update('ageYears', e.target.value)} 
+                  />
+              </div>
+            </FormRow>
+
+            <FormRow>
+              <FormCell 
+                label="Father's Name" 
+                subLabel="পিতার নাম"
+                value={data.fathersName}
+                onChange={(v) => update('fathersName', v)}
+              />
+            </FormRow>
+            <FormRow>
+              <FormCell 
+                label="Mother's Name" 
+                subLabel="মাতার নাম"
+                value={data.mothersName}
+                onChange={(v) => update('mothersName', v)}
+              />
+            </FormRow>
+            <FormRow>
+              <FormCell 
+                label="Spouse Name" 
+                subLabel="স্বামী বা স্ত্রীর নাম"
+                value={data.spouseName}
+                onChange={(v) => update('spouseName', v)}
+              />
+            </FormRow>
+
+            <FormRow>
+              <CheckboxGroup
+                label="Category, if not General"
+                bengaliLabel="শ্রেণী, সাধারণ শ্রেণী ভুক্ত না হলে"
+                options={[
+                  { label: 'SC', bengaliLabel: 'তপশিলি জাতি', value: 'SC' },
+                  { label: 'ST', bengaliLabel: 'তপশিলি উপজাতি', value: 'ST' },
+                  { label: 'OBC', bengaliLabel: 'অন্যান্য অনগ্রসর শ্রেণী', value: 'OBC' },
+                ]}
+                selectedValue={data.category}
+                onChange={(v) => update('category', v)}
+                className="w-full"
+              />
+            </FormRow>
+            
+            <FormRow>
+               <FormCell 
+                 label="Certificate No." 
+                 subLabel="সার্টিফিকেট নম্বর"
+                 value={data.certificateNo}
+                 onChange={(v) => update('certificateNo', v)}
+               />
+            </FormRow>
+
+            <FormRow>
+              <CheckboxGroup
+                label="Marital Status"
+                bengaliLabel="বৈবাহিক অবস্থা"
+                options={[
+                  { label: 'Unmarried', bengaliLabel: 'অবিবাহিত', value: 'Unmarried' },
+                  { label: 'Widow/Widower', bengaliLabel: 'বিধবা/বিপত্নীক', value: 'Widow' },
+                  { label: 'Married', bengaliLabel: 'বিবাহিত', value: 'Married' },
+                  { label: 'Separated', bengaliLabel: 'বিচ্ছিন্ন', value: 'Separated' },
+                ]}
+                selectedValue={data.maritalStatus}
+                onChange={(v) => update('maritalStatus', v)}
+                className="w-full"
+              />
+            </FormRow>
+
+            {/* Address Section */}
+            <SectionHeader title="Contact Details" bengaliTitle="যোগাযোগের বিবরণ" />
+
+            <FormRow>
+              <FormCell 
+                label="House/Premise No." 
+                subLabel="বাড়ির নম্বর / প্রাঙ্গন নম্বর"
+                value={data.houseNo}
+                onChange={(v) => update('houseNo', v)}
+              />
+            </FormRow>
+            <FormRow>
+              <FormCell 
+                label="Village/Town/City" 
+                subLabel="গ্রাম/শহর/নগরী"
+                value={data.village}
+                onChange={(v) => update('village', v)}
+              />
+            </FormRow>
+            <FormRow>
+              <FormCell 
+                label="Post Office" 
+                subLabel="ডাকঘর"
+                value={data.postOffice}
+                onChange={(v) => update('postOffice', v)}
+              />
+            </FormRow>
+            <FormRow>
+              <FormCell 
+                label="GP/Ward No" 
+                subLabel="গ্রাম পঞ্চায়েত/ওয়ার্ড নম্বর"
+                value={data.gpWard}
+                onChange={(v) => update('gpWard', v)}
+              />
+            </FormRow>
+             <FormRow>
+              <FormCell 
+                label="Block/Municipality/Corp." 
+                subLabel="ব্লক/পৌরসভা/কর্পোরেশন"
+                value={data.block}
+                onChange={(v) => update('block', v)}
+              />
+            </FormRow>
+            <FormRow>
+              <FormCell 
+                label="Police Station" 
+                subLabel="থানা"
+                value={data.policeStation}
+                onChange={(v) => update('policeStation', v)}
+              />
+            </FormRow>
+             <FormRow>
+              <FormCell 
+                label="District" 
+                subLabel="জেলা"
+                value={data.district}
+                onChange={(v) => update('district', v)}
+              />
+            </FormRow>
+            <FormRow>
+              <FormCell 
+                label="Pin Code" 
+                subLabel="পিন কোড"
+                value={data.pinCode}
+                onChange={(v) => update('pinCode', v)}
+              />
+            </FormRow>
+             <FormRow>
+              <FormCell 
+                label="State" 
+                subLabel="রাজ্য"
+                value={data.state}
+                onChange={(v) => update('state', v)}
+              />
+            </FormRow>
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
           </div>
         </div>
 
@@ -311,13 +569,27 @@ function App() {
                      MP or Equivalent <br/> <span className="font-bengali font-normal">মাধ্যমিক বা সমতুল্য</span>
                    </div>
                    <div className="col-span-3 border-r border-black p-1">
+<<<<<<< HEAD
                       <BoxInput length={8} value={data.education[0].board} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].board = val;
+=======
+                      <input className="w-full h-full bg-transparent font-handwriting text-blue-700 uppercase" value={data.education[0].board} onChange={(e) => {
+                        const newEd = [...data.education];
+                        newEd[0].board = e.target.value;
+                        update('education', newEd);
+                      }} placeholder="WBBSE/CBSE/ICSE" />
+                   </div>
+                   <div className="col-span-2 border-r border-black p-1">
+                      <input className="w-full h-full bg-transparent font-handwriting text-blue-700" value={data.education[0].roll} onChange={(e) => {
+                        const newEd = [...data.education];
+                        newEd[0].roll = e.target.value;
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                         update('education', newEd);
                       }} />
                    </div>
                    <div className="col-span-2 border-r border-black p-1">
+<<<<<<< HEAD
                       <BoxInput length={8} value={data.education[0].roll} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].roll = val;
@@ -328,13 +600,24 @@ function App() {
                       <BoxInput length={8} value={data.education[0].no} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].no = val;
+=======
+                      <input className="w-full h-full bg-transparent font-handwriting text-blue-700" value={data.education[0].no} onChange={(e) => {
+                        const newEd = [...data.education];
+                        newEd[0].no = e.target.value;
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                         update('education', newEd);
                       }} />
                    </div>
                     <div className="col-span-2 p-1">
+<<<<<<< HEAD
                       <BoxInput length={4} value={data.education[0].year} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].year = val;
+=======
+                      <input className="w-full h-full bg-transparent font-handwriting text-blue-700" value={data.education[0].year} onChange={(e) => {
+                        const newEd = [...data.education];
+                        newEd[0].year = e.target.value;
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                         update('education', newEd);
                       }} />
                    </div>
@@ -342,6 +625,7 @@ function App() {
             </div>
 
             <div className="border-2 border-black mb-6">
+<<<<<<< HEAD
               <TableRow>
                  <TableLabel label="Educational Qualification (highest)" subLabel="শিক্ষাগত যোগ্যতা (সর্বোচ্চ)" />
                  <TableInput><BoxInput length={24} value={data.highestQualification} onChange={v => update('highestQualification', v)} /></TableInput>
@@ -350,11 +634,30 @@ function App() {
                  <TableLabel label="Present Occupation" subLabel="বর্তমান পেশা" />
                  <TableInput><BoxInput length={24} value={data.presentOccupation} onChange={v => update('presentOccupation', v)} /></TableInput>
               </TableRow>
+=======
+              <FormRow>
+                 <FormCell 
+                   label="Educational Qualification (highest)" 
+                   subLabel="শিক্ষাগত যোগ্যতা (সর্বোচ্চ)"
+                   value={data.highestQualification}
+                   onChange={v => update('highestQualification', v)}
+                 />
+              </FormRow>
+              <FormRow>
+                 <FormCell 
+                   label="Present Occupation" 
+                   subLabel="বর্তমান পেশা"
+                   value={data.presentOccupation}
+                   onChange={v => update('presentOccupation', v)}
+                 />
+              </FormRow>
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
             </div>
 
             {/* Bank Details */}
             <div className="border-2 border-black mb-6">
               <SectionHeader title="Bank Account Details (Aadhaar linked)" bengaliTitle="ব্যাঙ্ক অ্যাকাউন্ট (আধার কার্ডের সাথে সংযুক্ত)" />
+<<<<<<< HEAD
               <TableRow>
                 <TableLabel label="Bank Name" subLabel="ব্যাঙ্কের নাম" />
                 <TableInput><BoxInput length={20} value={data.bankName} onChange={v => update('bankName', v)} /></TableInput>
@@ -371,6 +674,20 @@ function App() {
                 <TableLabel label="IFSC Code" subLabel="আই. এফ. এস. সি. কোড" />
                 <TableInput><BoxInput length={11} value={data.ifsc} onChange={v => update('ifsc', v)} /></TableInput>
               </TableRow>
+=======
+              <FormRow>
+                <FormCell label="Bank Name" subLabel="ব্যাঙ্কের নাম" value={data.bankName} onChange={v => update('bankName', v)} />
+              </FormRow>
+              <FormRow>
+                <FormCell label="Branch Name" subLabel="ব্যাঙ্ক শাখা" value={data.branchName} onChange={v => update('branchName', v)} />
+              </FormRow>
+              <FormRow>
+                <FormCell label="Account No." subLabel="ব্যাঙ্ক অ্যাকাউন্ট নম্বর" value={data.accountNo} onChange={v => update('accountNo', v)} />
+              </FormRow>
+              <FormRow>
+                <FormCell label="IFSC Code" subLabel="আই. এফ. এস. সি. কোড" value={data.ifsc} onChange={v => update('ifsc', v)} />
+              </FormRow>
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
             </div>
 
             {/* Financial Assistance */}
@@ -392,10 +709,21 @@ function App() {
                     </label>
                  </div>
                </div>
+<<<<<<< HEAD
                <TableRow className="border-b-0">
                  <TableLabel label="If yes give details" subLabel="যদি পান বিস্তারিত বিবরণ দিন" />
                  <TableInput><BoxInput length={24} value={data.assistanceDetails} onChange={v => update('assistanceDetails', v)} /></TableInput>
                </TableRow>
+=======
+               <FormRow>
+                 <FormCell 
+                   label="If yes give details" 
+                   subLabel="যদি পান বিস্তারিত বিবরণ দিন"
+                   value={data.assistanceDetails}
+                   onChange={v => update('assistanceDetails', v)}
+                 />
+               </FormRow>
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
             </div>
 
             {/* Enclosure List */}
@@ -456,7 +784,15 @@ function App() {
               <div className="flex justify-between items-end mt-8">
                  <div>
                     <div className="text-xs font-bold mb-1">Date <span className="font-bengali font-normal">(তারিখ)</span></div>
+<<<<<<< HEAD
                     <BoxInput length={12} value={data.declarationDate} onChange={v => update('declarationDate', v)} />
+=======
+                    <input 
+                      className="border-b border-black font-handwriting text-blue-700 w-32" 
+                      value={data.declarationDate} 
+                      onChange={e => update('declarationDate', e.target.value)} 
+                    />
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                  </div>
                  <div className="text-center">
                     <div className="h-8 mb-1 font-handwriting text-blue-700 text-xl">{data.beneficiaryName}</div>
@@ -475,6 +811,7 @@ function App() {
                <div className="text-center font-bold text-sm underline mb-2">Acknowledgement</div>
                
                <FormRow className="border-none mb-2">
+<<<<<<< HEAD
                  <FormCell label="Duare Sarkar Registration no." value={data.duareSarkarRegNo} onChange={() => {}} className="border-b border-black" boxCount={18} />
                </FormRow>
 
@@ -485,11 +822,27 @@ function App() {
                  <br/>
                  My mobile no. <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-32 px-1" value={data.ackMobile} onChange={e => update('ackMobile', e.target.value)} /> 
                  Aadhaar no. <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-40 px-1" value={data.ackAadhaar} onChange={e => update('ackAadhaar', e.target.value)} />
+=======
+                 <FormCell label="Duare Sarkar Registration no." value={data.duareSarkarRegNo} onChange={() => {}} className="border-b border-black" />
+               </FormRow>
+
+               <div className="text-xs leading-loose">
+                 I, <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-40" value={data.ackName} onChange={e => update('ackName', e.target.value)} />, 
+                 son/daughter/wife of <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-40" value={data.ackRelationName} onChange={e => update('ackRelationName', e.target.value)} />, 
+                 have submitted BANGLAR YUBA SATHI application on <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-24" value={data.ackDate} onChange={e => update('ackDate', e.target.value)} />.
+                 <br/>
+                 My mobile no. <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-32" value={data.ackMobile} onChange={e => update('ackMobile', e.target.value)} /> 
+                 Aadhaar no. <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-40" value={data.ackAadhaar} onChange={e => update('ackAadhaar', e.target.value)} />
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                </div>
 
                <div className="flex justify-between items-end mt-4">
                   <div className="text-xs">
+<<<<<<< HEAD
                      Received on <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-24 px-1" value={data.ackReceivedDate} onChange={e => update('ackReceivedDate', e.target.value)} />
+=======
+                     Received on <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-24" value={data.ackReceivedDate} onChange={e => update('ackReceivedDate', e.target.value)} />
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                   </div>
                   <div className="text-center">
                      <div className="h-8"></div>
@@ -500,8 +853,13 @@ function App() {
 
         </div>
 
+<<<<<<< HEAD
         {/* REQUIRED FOOTER - Visible on screen, hidden on print */}
         <div className="mt-8 mb-4 text-center font-bold text-sm bg-gray-100 p-4 border-t border-gray-300 no-print">
+=======
+        {/* REQUIRED FOOTER */}
+        <div className="mt-8 mb-4 text-center font-bold text-sm bg-gray-100 p-4 border-t border-gray-300">
+>>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
            this website develop by arshed if you want to make a website in afordable price call or whatsapp 9038444838
         </div>
         
