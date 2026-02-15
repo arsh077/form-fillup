@@ -558,12 +558,9 @@ function App() {
                       <BoxInput length={8} value={data.education[0].board} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].board = val;
-                        <input className="w-full h-full bg-transparent font-handwriting text-blue-700 uppercase" value={data.education[0].board} onChange={(e) => {
-                          const newEd = [...data.education];
-                          newEd[0].board = e.target.value;
-                          update('education', newEd);
-                        }} placeholder="WBBSE/CBSE/ICSE" />
-                   </div>
+                        update('education', newEd);
+                      }} placeholder="WBBSE/CBSE/ICSE" />
+                    </div>
                     <div className="col-span-2 border-r border-black p-1">
                       <input className="w-full h-full bg-transparent font-handwriting text-blue-700" value={data.education[0].roll} onChange={(e) => {
                         const newEd = [...data.education];
