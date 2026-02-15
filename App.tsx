@@ -1,12 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { initialFormData, FormData } from './types';
-<<<<<<< HEAD
 import { FormRow, FormCell, CheckboxGroup, SectionHeader, BooleanCheckbox, BoxInput, TableRow, TableLabel, TableInput } from './components/FormComponents';
 import { Printer, Upload } from 'lucide-react';
-=======
 import { FormRow, FormCell, CheckboxGroup, SectionHeader, BooleanCheckbox } from './components/FormComponents';
 import { Printer, Upload, Download } from 'lucide-react';
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
 
 function App() {
   const [data, setData] = useState<FormData>(initialFormData);
@@ -71,7 +68,6 @@ function App() {
             APPLICATION FORM for BANGLAR YUBA SATHI SCHEME <span className="font-bengali font-normal">(বাংলার যুবসাথী প্রকল্পের আবেদন পত্র)</span>
           </div>
 
-<<<<<<< HEAD
           {/* Top Section: ID & Photo */}
           <div className="border-2 border-black border-b-0 flex">
             {/* Left Column (Fields) */}
@@ -88,7 +84,6 @@ function App() {
                     <BoxInput length={12} value={data.aadhaarNo} onChange={(v) => update('aadhaarNo', v)} />
                  </TableInput>
                </TableRow>
-=======
           {/* Main Form Body */}
           <div className="border-2 border-black flex">
             {/* Left Column (Fields) */}
@@ -109,16 +104,12 @@ function App() {
                    onChange={(v) => update('aadhaarNo', v)} 
                  />
                </FormRow>
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
             </div>
             
             {/* Right Column (Photo) */}
             <div 
-<<<<<<< HEAD
               className="w-32 md:w-40 border-l border-black flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-gray-50 relative group bg-white"
-=======
               className="w-32 md:w-40 border-l-2 border-black flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-gray-50 relative group"
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
               onClick={() => fileInputRef.current?.click()}
             >
               <input 
@@ -142,7 +133,6 @@ function App() {
             </div>
           </div>
 
-<<<<<<< HEAD
           {/* Main Table Structure */}
           <div className="border-2 border-black">
             
@@ -323,7 +313,6 @@ function App() {
                 <TableLabel label="State" subLabel="রাজ্য" />
                 <TableInput><BoxInput length={24} value={data.state} onChange={v => update('state', v)} /></TableInput>
              </TableRow>
-=======
           {/* Continuing the table structure */}
           <div className="border-x-2 border-b-2 border-black">
             <FormRow>
@@ -547,7 +536,6 @@ function App() {
                 onChange={(v) => update('state', v)}
               />
             </FormRow>
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
           </div>
         </div>
 
@@ -569,11 +557,9 @@ function App() {
                      MP or Equivalent <br/> <span className="font-bengali font-normal">মাধ্যমিক বা সমতুল্য</span>
                    </div>
                    <div className="col-span-3 border-r border-black p-1">
-<<<<<<< HEAD
                       <BoxInput length={8} value={data.education[0].board} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].board = val;
-=======
                       <input className="w-full h-full bg-transparent font-handwriting text-blue-700 uppercase" value={data.education[0].board} onChange={(e) => {
                         const newEd = [...data.education];
                         newEd[0].board = e.target.value;
@@ -584,12 +570,10 @@ function App() {
                       <input className="w-full h-full bg-transparent font-handwriting text-blue-700" value={data.education[0].roll} onChange={(e) => {
                         const newEd = [...data.education];
                         newEd[0].roll = e.target.value;
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                         update('education', newEd);
                       }} />
                    </div>
                    <div className="col-span-2 border-r border-black p-1">
-<<<<<<< HEAD
                       <BoxInput length={8} value={data.education[0].roll} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].roll = val;
@@ -600,24 +584,19 @@ function App() {
                       <BoxInput length={8} value={data.education[0].no} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].no = val;
-=======
                       <input className="w-full h-full bg-transparent font-handwriting text-blue-700" value={data.education[0].no} onChange={(e) => {
                         const newEd = [...data.education];
                         newEd[0].no = e.target.value;
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                         update('education', newEd);
                       }} />
                    </div>
                     <div className="col-span-2 p-1">
-<<<<<<< HEAD
                       <BoxInput length={4} value={data.education[0].year} onChange={(val) => {
                         const newEd = [...data.education];
                         newEd[0].year = val;
-=======
                       <input className="w-full h-full bg-transparent font-handwriting text-blue-700" value={data.education[0].year} onChange={(e) => {
                         const newEd = [...data.education];
                         newEd[0].year = e.target.value;
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                         update('education', newEd);
                       }} />
                    </div>
@@ -625,7 +604,6 @@ function App() {
             </div>
 
             <div className="border-2 border-black mb-6">
-<<<<<<< HEAD
               <TableRow>
                  <TableLabel label="Educational Qualification (highest)" subLabel="শিক্ষাগত যোগ্যতা (সর্বোচ্চ)" />
                  <TableInput><BoxInput length={24} value={data.highestQualification} onChange={v => update('highestQualification', v)} /></TableInput>
@@ -634,7 +612,6 @@ function App() {
                  <TableLabel label="Present Occupation" subLabel="বর্তমান পেশা" />
                  <TableInput><BoxInput length={24} value={data.presentOccupation} onChange={v => update('presentOccupation', v)} /></TableInput>
               </TableRow>
-=======
               <FormRow>
                  <FormCell 
                    label="Educational Qualification (highest)" 
@@ -651,13 +628,11 @@ function App() {
                    onChange={v => update('presentOccupation', v)}
                  />
               </FormRow>
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
             </div>
 
             {/* Bank Details */}
             <div className="border-2 border-black mb-6">
               <SectionHeader title="Bank Account Details (Aadhaar linked)" bengaliTitle="ব্যাঙ্ক অ্যাকাউন্ট (আধার কার্ডের সাথে সংযুক্ত)" />
-<<<<<<< HEAD
               <TableRow>
                 <TableLabel label="Bank Name" subLabel="ব্যাঙ্কের নাম" />
                 <TableInput><BoxInput length={20} value={data.bankName} onChange={v => update('bankName', v)} /></TableInput>
@@ -674,7 +649,6 @@ function App() {
                 <TableLabel label="IFSC Code" subLabel="আই. এফ. এস. সি. কোড" />
                 <TableInput><BoxInput length={11} value={data.ifsc} onChange={v => update('ifsc', v)} /></TableInput>
               </TableRow>
-=======
               <FormRow>
                 <FormCell label="Bank Name" subLabel="ব্যাঙ্কের নাম" value={data.bankName} onChange={v => update('bankName', v)} />
               </FormRow>
@@ -687,7 +661,6 @@ function App() {
               <FormRow>
                 <FormCell label="IFSC Code" subLabel="আই. এফ. এস. সি. কোড" value={data.ifsc} onChange={v => update('ifsc', v)} />
               </FormRow>
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
             </div>
 
             {/* Financial Assistance */}
@@ -709,12 +682,10 @@ function App() {
                     </label>
                  </div>
                </div>
-<<<<<<< HEAD
                <TableRow className="border-b-0">
                  <TableLabel label="If yes give details" subLabel="যদি পান বিস্তারিত বিবরণ দিন" />
                  <TableInput><BoxInput length={24} value={data.assistanceDetails} onChange={v => update('assistanceDetails', v)} /></TableInput>
                </TableRow>
-=======
                <FormRow>
                  <FormCell 
                    label="If yes give details" 
@@ -723,7 +694,6 @@ function App() {
                    onChange={v => update('assistanceDetails', v)}
                  />
                </FormRow>
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
             </div>
 
             {/* Enclosure List */}
@@ -784,15 +754,12 @@ function App() {
               <div className="flex justify-between items-end mt-8">
                  <div>
                     <div className="text-xs font-bold mb-1">Date <span className="font-bengali font-normal">(তারিখ)</span></div>
-<<<<<<< HEAD
                     <BoxInput length={12} value={data.declarationDate} onChange={v => update('declarationDate', v)} />
-=======
                     <input 
                       className="border-b border-black font-handwriting text-blue-700 w-32" 
                       value={data.declarationDate} 
                       onChange={e => update('declarationDate', e.target.value)} 
                     />
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                  </div>
                  <div className="text-center">
                     <div className="h-8 mb-1 font-handwriting text-blue-700 text-xl">{data.beneficiaryName}</div>
@@ -811,7 +778,6 @@ function App() {
                <div className="text-center font-bold text-sm underline mb-2">Acknowledgement</div>
                
                <FormRow className="border-none mb-2">
-<<<<<<< HEAD
                  <FormCell label="Duare Sarkar Registration no." value={data.duareSarkarRegNo} onChange={() => {}} className="border-b border-black" boxCount={18} />
                </FormRow>
 
@@ -822,7 +788,6 @@ function App() {
                  <br/>
                  My mobile no. <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-32 px-1" value={data.ackMobile} onChange={e => update('ackMobile', e.target.value)} /> 
                  Aadhaar no. <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-40 px-1" value={data.ackAadhaar} onChange={e => update('ackAadhaar', e.target.value)} />
-=======
                  <FormCell label="Duare Sarkar Registration no." value={data.duareSarkarRegNo} onChange={() => {}} className="border-b border-black" />
                </FormRow>
 
@@ -833,16 +798,12 @@ function App() {
                  <br/>
                  My mobile no. <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-32" value={data.ackMobile} onChange={e => update('ackMobile', e.target.value)} /> 
                  Aadhaar no. <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-40" value={data.ackAadhaar} onChange={e => update('ackAadhaar', e.target.value)} />
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                </div>
 
                <div className="flex justify-between items-end mt-4">
                   <div className="text-xs">
-<<<<<<< HEAD
                      Received on <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-24 px-1" value={data.ackReceivedDate} onChange={e => update('ackReceivedDate', e.target.value)} />
-=======
                      Received on <input className="border-b border-black bg-transparent font-handwriting text-blue-700 w-24" value={data.ackReceivedDate} onChange={e => update('ackReceivedDate', e.target.value)} />
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
                   </div>
                   <div className="text-center">
                      <div className="h-8"></div>
@@ -853,13 +814,10 @@ function App() {
 
         </div>
 
-<<<<<<< HEAD
         {/* REQUIRED FOOTER - Visible on screen, hidden on print */}
         <div className="mt-8 mb-4 text-center font-bold text-sm bg-gray-100 p-4 border-t border-gray-300 no-print">
-=======
         {/* REQUIRED FOOTER */}
         <div className="mt-8 mb-4 text-center font-bold text-sm bg-gray-100 p-4 border-t border-gray-300">
->>>>>>> 6aa55518bb9a1ee6a205ce49eb842dc2e0b0f142
            this website develop by arshed if you want to make a website in afordable price call or whatsapp 9038444838
         </div>
         
